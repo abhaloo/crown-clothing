@@ -14,6 +14,40 @@ const config = {
   };
 
 
+export const createUserProfileDocument = async(userAuth, additionalData) => {
+  
+  //if user is not signed in, the return value is null and therefore we do nothing
+  if (!userAuth) { return };
+
+  //check if authenticated user exists in firestore database
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  const snapShot = await userRef.get();
+
+  //if user does not exist, create new user profile in database
+  if(!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      })
+
+    } catch (error) {
+      console.log("error creating user profile", error.message);
+
+    }
+  }
+
+  return userRef;
+
+}
+
+//Firebase initializers
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
