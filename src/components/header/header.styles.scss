@@ -7,8 +7,8 @@
   
     .logo-container {
       height: 100%;
-      width: 70px;
-      padding: 25px;
+      width: 10px;
+      padding: 15px;
     }
   
     .options {
@@ -23,6 +23,17 @@
         cursor: pointer;
         
       }
+    }
+
+    .title { 
+      display: flex;
+      align-items: center;
+      font-size: xxx-large; 
+      font-family: 'Bangers', cursive;
+      padding-right: 280px;
+      padding-top: 8px;
+      
+      
     }
   }
   

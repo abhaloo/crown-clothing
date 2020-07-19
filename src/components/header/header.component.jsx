@@ -19,6 +19,7 @@ const Header = ({ currentUser, hidden }) => (
         <Link className='logo-container' to="/">
             <Logo className='option'></Logo>
         </Link>
+        <span className='title'>CROWN CLOTHING</span>
         <div className='options'>
             <Link className='option' to='/shop'>
                 SHOP
@@ -42,7 +43,7 @@ const Header = ({ currentUser, hidden }) => (
         </div>
 )
 
-const mapStateToProps = ({ user : { currentUser }, cart: { hidden } }) => ({
+const mapStateToProps = ({ user : { currentUser }, cart : { hidden } }) => ({
     currentUser, hidden
 });
 
