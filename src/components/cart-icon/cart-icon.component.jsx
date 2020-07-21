@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
+import { createStructuredSelector } from 'reselect';
 
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
@@ -22,10 +23,10 @@ const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden())
 })
 
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = createStructuredSelector ({
     //reduce takes a function that accumulates a value over several iterations
     // the second argument is the initial value of the accumulator
-    itemCount: selectCartItemsCount(state)
+    itemCount: selectCartItemsCount
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(CartIcon);
