@@ -9,13 +9,14 @@ export const selectCollections = createSelector(
 )
 
 const COLLECTION_ID_MAP = {
-    hats:1,
-    sneakers:2,
-    jackets:3,
-    womens:4,
-    mens:5
+    hats: 1,
+    sneakers: 2,
+    jackets: 3,
+    womens: 4,
+    mens: 5
 }
 
+//converts object to an array of its keys 
 export const selectCollectionsForPreview = createSelector( 
   [selectCollections],
   collections => Object.keys(collections).map(key => collections[key])
@@ -27,5 +28,5 @@ export const selectCollectionsForPreview = createSelector(
 export const selectCollection = collectionUrlParam =>
   createSelector(
     [selectCollections],
-    collections => collections.find(collection => collections.id === COLLECTION_ID_MAP[collectionUrlParam])
+    collections => collections[collectionUrlParam]
   );
