@@ -22,9 +22,9 @@ const CollectionPage = ({ collection }) => {
     )
 
 }
-
+//pass url (provided by Route->match) as parameter to determine which collection to display
 const mapStateToProps = (state, ownProps) => ({
-    collection: selectCollection(ownProps.match.params.collectionId)(state) //pass url (provided by Route->match) as parameter to determine which collection to display
+    collection: selectCollection(ownProps.match.params.collectionId)(state) 
 })
 
 export default connect(mapStateToProps)(CollectionPage);
